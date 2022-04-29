@@ -8,23 +8,28 @@ namespace BlogPessoal.src.models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
+        [Required, StringLength(30)]
         public int Id { get; set; }
-        [Required, StringLength(30)]    
-        
-        
+
+
+        [Required, StringLength(30)]
         public string Title { get; set; }
+
+
         [Required, StringLength(30)]
-        
-        
         public string Description { get; set; }
-        [Required, StringLength(30)]
 
         public string Picture { get; set; }
 
+      
 
         [ForeignKey("FK_user")]
         public UserModel Creator { get; set; }
 
-       
+        [ForeignKey("Fk_theme")]
+        public ThemeModel Theme { get; set; }
+
+
     }
 }

@@ -12,11 +12,13 @@ namespace BlogPessoal.src.models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
+        [Required, StringLength(20)]
         public int Id { get; set; }
-        [Required, StringLength(30)]
+
+        [Required, StringLength(20)]
         public string Description { get; set; }
-        [Required, StringLength(30)]
-        
+
+
         [JsonIgnore]
 
         public List<PostingModel> RelatedPosts { get; set; }

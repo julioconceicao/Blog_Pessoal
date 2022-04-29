@@ -13,23 +13,24 @@ namespace BlogPessoal.src.models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [Required]
+        [StringLength(30)]
         public string Name { get; set; }
+
         [Required]
         [StringLength(30)]
-
         public string Email { get; set; }
-        [Required]
-        [StringLength(30)]
 
-        public string Password { get; set; }
         [Required]
         [StringLength(30)]
+        public string Password { get; set; }
+
 
         public string Picture { get; set; }
 
 
         [JsonIgnore]
 
-        public List<PostingModel> MyPosts {get; set;}
-}
+        public List<PostingModel> MyPosts { get; set; }
+    }
 }

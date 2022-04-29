@@ -2,9 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\BlogPessoal",
+    "\\BlogPessoalTeste",
+    "\\BlogPessoalTeste\\Tests",
+    "\\BlogPessoalTeste\\Tests\\data",
     "\\BlogPessoal\\src",
     "\\BlogPessoal\\src\\models"
   ],
-  "SelectedNode": "\\BlogPessoal.sln",
+  "SelectedNode": "\\BlogPessoalTeste\\Tests\\data\\BlogPessoalContextTest.cs",
   "PreviewInSolutionExplorer": false
 }
