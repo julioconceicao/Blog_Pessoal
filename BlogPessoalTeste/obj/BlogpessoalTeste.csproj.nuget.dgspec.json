@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BPVSC\\Blog_Pessoal\\BlogPessoalTeste\\BlogpessoalTeste.csproj": {}
+    "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BLOG\\Blog_Pessoal\\BlogPessoalTeste\\BlogpessoalTeste.csproj": {}
   },
   "projects": {
-    "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BPVSC\\Blog_Pessoal\\BlogPessoalTeste\\BlogpessoalTeste.csproj": {
+    "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BLOG\\Blog_Pessoal\\BlogPessoalTeste\\BlogpessoalTeste.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BPVSC\\Blog_Pessoal\\BlogPessoalTeste\\BlogpessoalTeste.csproj",
+        "projectUniqueName": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BLOG\\Blog_Pessoal\\BlogPessoalTeste\\BlogpessoalTeste.csproj",
         "projectName": "BlogpessoalTeste",
-        "projectPath": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BPVSC\\Blog_Pessoal\\BlogPessoalTeste\\BlogpessoalTeste.csproj",
+        "projectPath": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BLOG\\Blog_Pessoal\\BlogPessoalTeste\\BlogpessoalTeste.csproj",
         "packagesPath": "C:\\Users\\julio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BPVSC\\Blog_Pessoal\\BlogPessoalTeste\\obj\\",
+        "outputPath": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BLOG\\Blog_Pessoal\\BlogPessoalTeste\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\julio\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BPVSC\\Blog_Pessoal\\BlogPessoal\\BlogPessoal.csproj": {
-                "projectPath": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BPVSC\\Blog_Pessoal\\BlogPessoal\\BlogPessoal.csproj"
+              "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BLOG\\Blog_Pessoal\\BlogPessoal\\BlogPessoal.csproj": {
+                "projectPath": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BLOG\\Blog_Pessoal\\BlogPessoal\\BlogPessoal.csproj"
               }
             }
           }
@@ -88,14 +88,14 @@
         }
       }
     },
-    "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BPVSC\\Blog_Pessoal\\BlogPessoal\\BlogPessoal.csproj": {
+    "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BLOG\\Blog_Pessoal\\BlogPessoal\\BlogPessoal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BPVSC\\Blog_Pessoal\\BlogPessoal\\BlogPessoal.csproj",
+        "projectUniqueName": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BLOG\\Blog_Pessoal\\BlogPessoal\\BlogPessoal.csproj",
         "projectName": "BlogPessoal",
-        "projectPath": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BPVSC\\Blog_Pessoal\\BlogPessoal\\BlogPessoal.csproj",
+        "projectPath": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BLOG\\Blog_Pessoal\\BlogPessoal\\BlogPessoal.csproj",
         "packagesPath": "C:\\Users\\julio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BPVSC\\Blog_Pessoal\\BlogPessoal\\obj\\",
+        "outputPath": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BLOG\\Blog_Pessoal\\BlogPessoal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\julio\\AppData\\Roaming\\NuGet\\NuGet.Config",

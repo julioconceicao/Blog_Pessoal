@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4CjET7Xz4hjJqB7Cz5pbr4MdUZcVReVVfL+LcBtf5SYuvXTcUNn3N8wWwbAqzxPNSXK7iVJF0nivT6jBDfwarQ==",
+  "dgSpecHash": "2gvNd5wF/DahUyQ2VcRe7yWb23hnyOjqCqy0+56mVUeQhCnhEzm5siBTq3sLCqCZAz04h9sB0sQDkJR3Fu4rww==",
   "success": true,
-  "projectFilePath": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BPVSC\\Blog_Pessoal\\BlogPessoal\\BlogPessoal.csproj",
+  "projectFilePath": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BLOG\\Blog_Pessoal\\BlogPessoal\\BlogPessoal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\julio\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\julio\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

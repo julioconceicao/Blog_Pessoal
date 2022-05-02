@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ongFONNQCYqAW4Ka9NEhOvLjDHrkmjJewUhh47N6HrJi1DCmh9BFoq96Grtwr3DYyNtQenpoUa6YrRHTtDkMZg==",
+  "dgSpecHash": "lYbiJSKnBcFhDQ1QTq9NPcAf0lVHZbqdgKE4+WRHp0iIxXjcyWGbS5kp5eMy3xKhbR+xeEHSjmVQRx8Hvsj5Og==",
   "success": true,
-  "projectFilePath": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BPVSC\\Blog_Pessoal\\BlogPessoalTeste\\BlogpessoalTeste.csproj",
+  "projectFilePath": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BLOG\\Blog_Pessoal\\BlogPessoalTeste\\BlogpessoalTeste.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\julio\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\julio\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",

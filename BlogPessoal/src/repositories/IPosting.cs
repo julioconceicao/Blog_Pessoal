@@ -25,7 +25,8 @@ namespace BlogPessoal.src.repositories
 
         List<PostingModel> GetPostByTitle(string title);
 
-        List<PostingModel> GetPostByDescription(string description);
+        List<PostingModel> GetPostBySearch(string title, string themeDescription, string emailCreator);
+
 
     }
 }

@@ -5802,11 +5802,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BPVSC\\Blog_Pessoal\\BlogPessoal\\BlogPessoal.csproj",
+      "projectUniqueName": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BLOG\\Blog_Pessoal\\BlogPessoal\\BlogPessoal.csproj",
       "projectName": "BlogPessoal",
-      "projectPath": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BPVSC\\Blog_Pessoal\\BlogPessoal\\BlogPessoal.csproj",
+      "projectPath": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BLOG\\Blog_Pessoal\\BlogPessoal\\BlogPessoal.csproj",
       "packagesPath": "C:\\Users\\julio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BPVSC\\Blog_Pessoal\\BlogPessoal\\obj\\",
+      "outputPath": "C:\\Users\\julio\\Documents\\.Projetos\\GenerationBrasil\\BLOG\\Blog_Pessoal\\BlogPessoal\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\julio\\AppData\\Roaming\\NuGet\\NuGet.Config",
