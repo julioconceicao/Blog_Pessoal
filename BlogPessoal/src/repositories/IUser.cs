@@ -1,6 +1,7 @@
 ﻿
 using BlogPessoal.src.dtos;
 using BlogPessoal.src.models;
+using System.Collections.Generic;
 
 namespace BlogPessoal.src.repositories
 {
@@ -18,9 +19,10 @@ namespace BlogPessoal.src.repositories
         void UpDateUser(UpDateUserDTO user);
 
         void DeleteUser(int id);
+
         UserModel GetUserByID(int id);
         UserModel GetUserByEmail(string email);
-        UserModel GetUserByName(string nome);
+        List<UserModel> GetUserByName(string name);
 
     }
 }

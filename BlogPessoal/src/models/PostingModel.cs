@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 namespace BlogPessoal.src.models
 {
-    //NOME DE CLASSE COMEÇA SEMPRE EM MAIÚSCULO!!!!!
+    //name DE CLASSE COMEÇA SEMPRE EM MAIÚSCULO!!!!!
     [Table("tb_posting")]
     public class PostingModel
     {

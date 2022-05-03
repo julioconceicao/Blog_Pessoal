@@ -12,12 +12,10 @@ namespace BlogPessoal.src.models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
-        [Required, StringLength(20)]
         public int Id { get; set; }
 
         [Required, StringLength(20)]
         public string Description { get; set; }
-
 
         [JsonIgnore]
 

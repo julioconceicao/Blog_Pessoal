@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace BlogPessoal.src.models
 {
-    //NOME DE CLASSE COMEÇA SEMPRE EM MAIÚSCULO!!!!!
+    //name DE CLASSE COMEÇA SEMPRE EM MAIÚSCULO!!!!!
     [Table("tb_user")]
     public class UserModel
     {

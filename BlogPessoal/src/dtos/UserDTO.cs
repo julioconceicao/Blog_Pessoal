@@ -11,6 +11,7 @@ namespace BlogPessoal.src.dtos
 
     public class NewUserDTO
     {
+       
         [Required, StringLength(30)]
         public string Name { get; set; }
 
@@ -24,6 +25,7 @@ namespace BlogPessoal.src.dtos
 
         public NewUserDTO(string name, string email, string password, string picture)
         {
+           
             Name = name;
             Email = email;
             Password = password;
@@ -43,22 +45,28 @@ namespace BlogPessoal.src.dtos
     {
 
         [Required]
-        [StringLength(30)]
+        public int Id { get; set; }
+
+        [Required, StringLength(30)]
         public string Name { get; set; }
 
 
-        [Required]
-        [StringLength(30)]
+        [Required, StringLength(30)]
         public string Password { get; set; }
 
+        [Required, StringLength(30)]
+        public string Email { get; set; }
 
         public string Picture { get; set; }
 
-        public UpDateUserDTO(string name, string password, string picture)
+        public UpDateUserDTO(int id, string name, string email, string password, string picture)
         {
+            Id = id;
             Name = name;
+            Email = email;
             Password = password;
             Picture = picture;
+            
         }
 
 
