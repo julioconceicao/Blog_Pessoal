@@ -51,14 +51,6 @@ namespace BlogPessoal
 
             app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
-            });
-
             // Production Environment
             // Routes
             app.UseRouting();

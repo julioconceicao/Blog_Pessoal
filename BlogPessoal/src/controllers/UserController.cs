@@ -25,16 +25,6 @@ namespace BlogPessoal.src.controllers
 
         #region Methods
 
-        [HttpGet("id/{idUser}")]
-        public IActionResult GetUserById([FromRoute] int idUser)
-        {
-            var user = _repository.GetUserByID(idUser);
-
-            if (user == null) return NotFound();
-            
-            return Ok(user);
-        }
-
         [HttpPost]
         public IActionResult NewUser([FromBody] NewUserDTO user)
         {
@@ -47,7 +37,9 @@ namespace BlogPessoal.src.controllers
         public IActionResult UpDateUser([FromBody] UpDateUserDTO user)
         {
             if (!ModelState.IsValid) return BadRequest();
+            
             _repository.UpDateUser(user);
+            
             return Ok(user);
         }
 
@@ -55,8 +47,41 @@ namespace BlogPessoal.src.controllers
         public IActionResult DeleteUser([FromRoute] int idUser)
         {
             _repository.DeleteUser(idUser);
+            
             return NoContent();
         }
+
+        [HttpGet("id/{idUser}")]
+        public IActionResult GetUserById([FromRoute] int idUser)
+        {
+            var user = _repository.GetUserByID(idUser);
+
+            if (user == null) return NotFound();
+            
+            return Ok(user);
+        }
+
+        [HttpGet("email/{userEmail}")]
+        public IActionResult GetUserByEmail([FromRoute] string userEmail)
+        {
+            var user = _repository.GetUserByEmail(userEmail);
+            
+            if (user == null) return NotFound();
+            
+            return Ok(user);
+        }
+
+        [HttpGet]
+        public IActionResult GetUserByName([FromQuery] string userName)
+        {
+            var user = _repository.GetUserByName(userName);
+            
+            if (user.Count < 1) return NoContent();
+            
+            return Ok(user);
+        }
+
+
 
         #endregion Methods
     }

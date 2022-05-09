@@ -37,7 +37,6 @@ namespace BlogPessoal.src.repositories.implementations
             _context.SaveChanges();
         }
 
-        
         public void UpDateTheme(UpDateThemeDTO theme)
         {
             var existingTheme = GetThemeByID(theme.Id);
@@ -46,8 +45,6 @@ namespace BlogPessoal.src.repositories.implementations
             _context.SaveChanges();
         }
 
-    
-
         public void DeleteTheme(int id)
         {
             _context.Themes.Remove(GetThemeByID(id));
@@ -55,8 +52,6 @@ namespace BlogPessoal.src.repositories.implementations
         }
 
         //Search by themes.
-
-
         public List<ThemeModel> GetAllThemes()
         {
             return _context.Themes.ToList();
@@ -74,6 +69,5 @@ namespace BlogPessoal.src.repositories.implementations
             return _context.Themes.FirstOrDefault(u => u.Id == id);
         }
         #endregion Methods
-
     }
 }
