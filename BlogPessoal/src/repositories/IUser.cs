@@ -14,7 +14,7 @@ namespace BlogPessoal.src.repositories
     /// </summary>
     public interface IUser
     {
-        void AddNewUser(NewUserDTO user);
+        void NewUser(NewUserDTO user);
 
         void UpDateUser(UpDateUserDTO user);
 

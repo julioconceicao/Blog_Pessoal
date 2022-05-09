@@ -25,7 +25,7 @@ namespace BlogPessoal.src.repositories.implementations
 
 
         #region Methods
-        public void AddNewUser(NewUserDTO user)
+        public void NewUser(NewUserDTO user)
         {
             _context.User.Add(new UserModel
             {

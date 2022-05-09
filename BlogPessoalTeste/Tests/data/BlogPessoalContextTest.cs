@@ -22,6 +22,7 @@ namespace BlogPessoalTeste.Tests.data
 
         }
 
+
         [TestMethod]
         public void InsertNewUserAtDatabaseReturnUser()
         {

@@ -29,16 +29,20 @@ namespace BlogPessoal
 
             services.AddDbContext<BlogPessoalContext>(opt => opt.UseSqlServer(config.GetConnectionString("DefaultConnection")));
 
-            // Repositorios
+            // Repositories
             services.AddScoped<IUser, UserRepository>();
             services.AddScoped<ITheme, ThemeRepository>();
             services.AddScoped<IPosting, PostingRepository>();
 
+            // Controllers
+            services.AddCors();
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, BlogPessoalContext context)
         {
+            //Development environment
             if (env.IsDevelopment())
             {
                 context.Database.EnsureCreated();
@@ -53,6 +57,18 @@ namespace BlogPessoal
                 {
                     await context.Response.WriteAsync("Hello World!");
                 });
+            });
+
+            // Production Environment
+            // Routes
+            app.UseRouting();
+            app.UseCors(c => c
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
             });
         }
     }

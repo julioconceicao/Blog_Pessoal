@@ -57,10 +57,10 @@ namespace BlogPessoal.src.repositories.implementations
         //Search by themes.
 
 
-        //public List<ThemeModel> GetAllThemes(int id)
-        //{
-        //    return _context.Themes.ToList();
-        //}
+        public List<ThemeModel> GetAllThemes()
+        {
+            return _context.Themes.ToList();
+        }
 
         public List<ThemeModel> GetThemeByDescription(string description)
         {

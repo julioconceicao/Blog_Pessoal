@@ -19,7 +19,6 @@ namespace BlogPessoal.src.dtos
 
     }
 
-
     /// <summary>
     /// <para>Mirror class to UPDATE A THEME.</para>
     /// <para>By: Julio Conceição</para>
@@ -35,7 +34,6 @@ namespace BlogPessoal.src.dtos
         public UpDateThemeDTO(string description)
         {
             Description = description;
-
         }
 
     }

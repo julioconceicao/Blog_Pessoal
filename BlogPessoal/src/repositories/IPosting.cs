@@ -23,7 +23,6 @@ namespace BlogPessoal.src.repositories
 
         List<PostingModel> GetAllPosts();
 
-
         List<PostingModel> GetPostBySearch(string title, string themeDescription, string emailCreator);
 
 
