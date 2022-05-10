@@ -49,15 +49,16 @@ namespace BlogPessoal
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseRouting();
-
             // Production Environment
             // Routes
             app.UseRouting();
+
+            
             app.UseCors(c => c
             .AllowAnyOrigin()
             .AllowAnyMethod()
             .AllowAnyHeader());
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
