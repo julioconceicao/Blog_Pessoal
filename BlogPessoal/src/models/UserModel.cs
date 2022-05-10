@@ -1,3 +1,4 @@
+using BlogPessoal.src.utilities;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -28,9 +29,10 @@ namespace BlogPessoal.src.models
 
         public string Picture { get; set; }
 
+        public UserType Type { get; set; }
+
 
         [JsonIgnore]
-
         public List<PostingModel> MyPosts { get; set; }
     }
 }

@@ -32,7 +32,8 @@ namespace BlogPessoal.src.repositories.implementations
                 Email = user.Email,
                 Name = user.Name,
                 Password = user.Password,
-                Picture = user.Picture
+                Picture = user.Picture,
+                Type = user.Type
             });
             _context.SaveChanges();
 

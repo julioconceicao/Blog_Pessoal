@@ -75,7 +75,6 @@ C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoa
 C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoal\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoal\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoal\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoal\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoal\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
 C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoal\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoal\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
@@ -108,3 +107,11 @@ C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoa
 C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoal\obj\Debug\net5.0\BlogPessoal.pdb
 C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoal\obj\Debug\net5.0\BlogPessoal.genruntimeconfig.cache
 C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoal\obj\Debug\net5.0\ref\BlogPessoal.dll
+C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoal\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoal\bin\Debug\net5.0\Microsoft.Extensions.Configuration.dll
+C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoal\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoal\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoal\bin\Debug\net5.0\NuGet.Common.dll
+C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoal\bin\Debug\net5.0\NuGet.Configuration.dll
+C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoal\bin\Debug\net5.0\NuGet.Frameworks.dll
+C:\Users\julio\Documents\.Projetos\GenerationBrasil\BLOG\Blog_Pessoal\BlogPessoal\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
