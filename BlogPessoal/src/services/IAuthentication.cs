@@ -6,7 +6,7 @@ namespace BlogPessoal.src.services
     public interface IAuthentication
     {
         string EncodePassword(string password);
-        void CreateUserWithoutDuplicate(NewUserDTO user);
+        Task CreateUserWithoutDuplicateAync(NewUserDTO user);
         string GenerateToken(UserModel user);
         AuthorizationDTO GetAuthorization(AuthenticationDTO authentication);
     }

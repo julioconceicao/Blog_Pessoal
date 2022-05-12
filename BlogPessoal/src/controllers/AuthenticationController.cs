@@ -30,7 +30,7 @@ namespace BlogPessoal.src.controllers
 
             try
             {
-                var authorization = _services.GetAuthorization(authentication);
+                var authorization = _services.GetAuthorizationAsync(authentication);
                 return Ok(authorization);
             }
             catch (Exception ex)

@@ -14,15 +14,15 @@ namespace BlogPessoal.src.repositories
     /// </summary>
     public interface IUser
     {
-        void NewUser(NewUserDTO user);
+        Task NewUserAsync(NewUserDTO user);
 
-        void UpDateUser(UpDateUserDTO user);
+        Task UpDateUserAsync(UpDateUserDTO user);
 
-        void DeleteUser(int id);
+        Task DeleteUserAsync(int id);
 
-        UserModel GetUserByID(int id);
-        UserModel GetUserByEmail(string email);
-        List<UserModel> GetUserByName(string name);
+        Task<UserModel> GetUserByIdAsync(int id);
+        Task<UserModel> GetUserByEmailAsync(string email);
+        Task<List<UserModel>> GetUserByNameAsync(string name);
 
     }
 }

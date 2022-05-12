@@ -8,6 +8,7 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BlogPessoal.src.services.implementations
 {
@@ -36,15 +37,15 @@ namespace BlogPessoal.src.services.implementations
             return Convert.ToBase64String(bytes);
         }
 
-        public void CreateUserWithoutDuplicate(NewUserDTO dto)
+        public async Task CreateUserWithoutDuplicateAsync(NewUserDTO dto)
         {
-            var user = _repository.GetUserByEmail(dto.Email);
+            var user = await _repository.GetUserByEmailAsync(dto.Email);
 
             if (user != null) throw new Exception("This email is already beeing used ;(");
 
             dto.Password = EncodePassword(dto.Password);
 
-            _repository.NewUser(dto);
+            _repository.NewUserAsync(dto);
         }
 
         public string GenerateToken(UserModel user)
@@ -71,9 +72,9 @@ namespace BlogPessoal.src.services.implementations
             return tokenManipulator.WriteToken(token);
         }
 
-        public AuthorizationDTO GetAuthorization(AuthenticationDTO authentication)
+        public async Task<AuthorizationDTO> GetAuthorizationAsync(AuthenticationDTO authentication)
         {
-            var user = _repository.GetUserByEmail(authentication.Email);
+            var user =await _repository.GetUserByEmailAsync(authentication.Email);
 
             if (user == null) throw new Exception("User not found :(");
 

@@ -4,97 +4,96 @@ using BlogPessoal.src.services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Threading.Tasks;
 
-namespace BlogPessoal.src.controllers
+namespace BlogPessoal.src.controllers 
 {
-    [ApiController]
-    [Route("api/users")]
-    [Produces("application/json")]
-    public class UserController : ControllerBase
-    {
-        #region Attributes
-        private readonly IUser _repository;
-        private readonly IAuthentication _services;
-
-        #endregion Attributes
-
-        #region Constructors
-        public UserController(IUser repository, IAuthentication services)
+        [ApiController]
+        [Route("api/users")]
+        [Produces("application/json")]
+        public class UserController: ControllerBase 
         {
-            _repository = repository;
-            _services = services;
-        }
-        #endregion Constructors
+            #region Attributes
+            private readonly IUser _repository;
+            private readonly IAuthentication _services;
 
-        #region Methods
+            #endregion Attributes
 
-        [HttpPost, AllowAnonymous]
-        public IActionResult NewUser([FromBody] NewUserDTO user)
-        {
-            if (!ModelState.IsValid) return BadRequest();
-
-            try
+            #region Constructors
+            public UserController(IUser repository, IAuthentication services) 
             {
-                _repository.NewUser(user);
-                return Created($"api/Users/email/{user.Email}", user);
+                _repository = repository;
+                _services = services;
             }
-            catch (Exception ex)
+            #endregion Constructors
+
+            #region Methods
+
+            [HttpPost, AllowAnonymous]
+            public async Task<ActionResult> NewUserAsync([FromBody] NewUserDTO user)
             {
-                return Unauthorized(ex.Message);
+                if (!ModelState.IsValid) return BadRequest();
+                
+                try {
+                    await _repository.NewUserAsync(user);
+                    return Created($"api/Users/email/{user.Email}", user);
+                } catch (Exception ex) {
+                    return Unauthorized(ex.Message);
+                }
             }
+
+            [HttpPut, Authorize(Roles = "NORMAL, ADMIN")]
+            public async Task<ActionResult> UpDateUserAsync([FromBody] UpDateUserDTO user) 
+            {
+                if (!ModelState.IsValid) 
+                    return BadRequest();
+                
+                user.Password = _services.EncodePassword(user.Password);
+
+                await _repository.UpDateUserAsync(user);
+
+                return Ok(user);
+            }
+            
+            [HttpDelete("delete/{idUser}"), Authorize(Roles = "ADMIN")]
+            public async Task<ActionResult> DeleteUserAsync([FromRoute] int idUser) 
+            {
+                await _repository.DeleteUserAsync(idUser);
+
+                return NoContent();
+            }
+            [HttpGet("id/{idUser}"), Authorize(Roles = "ADMIN")]
+            public async Task<ActionResult> GetUserByIdAsync([FromRoute] int idUser) 
+            {
+                var user = await _repository.GetUserByIdAsync(idUser);
+
+                if (user == null) 
+                    return NotFound();
+                
+                return Ok(user);
+            }
+
+            [HttpGet("email/{userEmail}"), Authorize(Roles = "ADMIN")]
+            public async Task<ActionResult> GetUserByEmailAsync([FromRoute] string userEmail) 
+            {
+                var user = await _repository.GetUserByEmailAsync(userEmail);
+
+                if (user == null) 
+                    return NotFound();
+                
+                return Ok(user);
+            }
+            
+            [HttpGet, AllowAnonymous]
+            public async Task<ActionResult> GetUserByNameAsync([FromQuery] string userName) 
+            {
+                var user = await _repository.GetUserByNameAsync(userName);
+
+                if (user.Count < 1) 
+                    return NoContent();
+                
+                return Ok(user);
+            }
+            #endregion Methods
         }
-
-        [HttpPut, Authorize(Roles = "NORMAL, ADMIN")]
-        public IActionResult UpDateUser([FromBody] UpDateUserDTO user)
-        {
-            if (!ModelState.IsValid) return BadRequest();
-
-            user.Password = _services.EncodePassword(user.Password);
-
-            _repository.UpDateUser(user);
-
-            return Ok(user);
-        }
-
-        [HttpDelete("delete/{idUser}"), Authorize(Roles = "ADMIN")]
-        public IActionResult DeleteUser([FromRoute] int idUser)
-        {
-            _repository.DeleteUser(idUser);
-
-            return NoContent();
-        }
-
-        [HttpGet("id/{idUser}"), Authorize(Roles = "ADMIN")]
-        public IActionResult GetUserById([FromRoute] int idUser)
-        {
-            var user = _repository.GetUserByID(idUser);
-
-            if (user == null) return NotFound();
-
-            return Ok(user);
-        }
-
-        [HttpGet("email/{userEmail}"), Authorize(Roles = "ADMIN")]
-        public IActionResult GetUserByEmail([FromRoute] string userEmail)
-        {
-            var user = _repository.GetUserByEmail(userEmail);
-
-            if (user == null) return NotFound();
-
-            return Ok(user);
-        }
-
-        [HttpGet, AllowAnonymous]
-        public IActionResult GetUserByName([FromQuery] string userName)
-        {
-            var user = _repository.GetUserByName(userName);
-
-            if (user.Count < 1) return NoContent();
-
-            return Ok(user);
-        }
-        #endregion Methods
     }
-}
-
-
