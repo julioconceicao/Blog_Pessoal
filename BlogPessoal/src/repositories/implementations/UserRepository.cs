@@ -44,11 +44,13 @@ namespace BlogPessoal.src.repositories.implementations
         public async Task UpDateUserAsync(UpDateUserDTO user)
         {
             var existingUser = await GetUserByIdAsync(user.Id);
+            
             existingUser.Name = user.Name;
             existingUser.Email = user.Email;
             existingUser.Password = user.Password;
             existingUser.Picture = user.Picture;
-            _context.Update(existingUser);
+            _context.User.Update(existingUser);
+            
             await _context.SaveChangesAsync();
             
         }
@@ -56,7 +58,8 @@ namespace BlogPessoal.src.repositories.implementations
         public async Task DeleteUserAsync(int id)
         {
             _context.User.Remove(await GetUserByIdAsync(id));
-            _context.SaveChanges();
+            
+            await _context.SaveChangesAsync();
         }
 
         public async Task<UserModel> GetUserByEmailAsync(string email)

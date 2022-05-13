@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace BlogPessoal.src.controllers 
 {
         [ApiController]
-        [Route("api/users")]
+        [Route("api/Users")]
         [Produces("application/json")]
         public class UserController: ControllerBase 
         {
@@ -34,15 +34,19 @@ namespace BlogPessoal.src.controllers
             {
                 if (!ModelState.IsValid) return BadRequest();
                 
-                try {
+                try 
+                {
                     await _repository.NewUserAsync(user);
+                    
                     return Created($"api/Users/email/{user.Email}", user);
-                } catch (Exception ex) {
+                } 
+                    catch (Exception ex) 
+                {
                     return Unauthorized(ex.Message);
                 }
             }
 
-            [HttpPut, Authorize(Roles = "NORMAL, ADMIN")]
+            [HttpPut, Authorize(Roles = "USER,ADMIN")]
             public async Task<ActionResult> UpDateUserAsync([FromBody] UpDateUserDTO user) 
             {
                 if (!ModelState.IsValid) 
@@ -62,29 +66,28 @@ namespace BlogPessoal.src.controllers
 
                 return NoContent();
             }
-            [HttpGet("id/{idUser}"), Authorize(Roles = "ADMIN")]
+            [HttpGet("id/{idUser}"), Authorize(Roles = "USER,ADMIN")]
             public async Task<ActionResult> GetUserByIdAsync([FromRoute] int idUser) 
             {
                 var user = await _repository.GetUserByIdAsync(idUser);
 
-                if (user == null) 
-                    return NotFound();
+                if (user == null) return NotFound();
                 
                 return Ok(user);
             }
 
-            [HttpGet("email/{userEmail}"), Authorize(Roles = "ADMIN")]
+            [HttpGet("email/{userEmail}"), Authorize(Roles = "USER,ADMIN")]
             public async Task<ActionResult> GetUserByEmailAsync([FromRoute] string userEmail) 
             {
                 var user = await _repository.GetUserByEmailAsync(userEmail);
 
                 if (user == null) 
-                    return NotFound();
+                return NotFound();
                 
                 return Ok(user);
             }
             
-            [HttpGet, AllowAnonymous]
+            [HttpGet, Authorize(Roles = "USER,ADMIN")]
             public async Task<ActionResult> GetUserByNameAsync([FromQuery] string userName) 
             {
                 var user = await _repository.GetUserByNameAsync(userName);

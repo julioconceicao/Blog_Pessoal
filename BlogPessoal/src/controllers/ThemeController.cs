@@ -1,5 +1,7 @@
-﻿using BlogPessoal.src.dtos;
+﻿using System.Threading.Tasks;
+using BlogPessoal.src.dtos;
 using BlogPessoal.src.repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogPessoal.src.controllers
@@ -16,7 +18,7 @@ namespace BlogPessoal.src.controllers
 
         private readonly ITheme _repository;
 
-        #endregion Attributes
+        #endregion 
 
         #region Constructors
         public ThemeController(ITheme repository)
@@ -24,70 +26,68 @@ namespace BlogPessoal.src.controllers
             _repository = repository;
         }
 
-        #endregion Constructors
+        #endregion 
 
         #region Methods
 
-        [HttpPost]
-        public IActionResult NewTheme([FromBody] NewThemeDTO theme)
+        [HttpPost, Authorize]
+        public async Task<ActionResult> NewThemeAsync([FromBody] NewThemeDTO theme)
         {
             if (!ModelState.IsValid) return BadRequest();
             
-            _repository.NewTheme(theme);
+            await _repository.NewThemeAsync(theme);
             
             return Created($"api/Themes", theme);
         }
 
-        [HttpPut]
-        public IActionResult UpDateTheme([FromBody] UpDateThemeDTO theme)
+        [HttpPut, Authorize(Roles= "ADMIN")]
+        public async Task<ActionResult> UpDateThemeAsync([FromBody] UpDateThemeDTO theme)
         {
             if (!ModelState.IsValid) return BadRequest();
             
-            _repository.UpDateTheme(theme);
+            await _repository.UpDateThemeAsync(theme);
             
             return Ok(theme);
         }
 
-        [HttpDelete("delete/{idTheme}")]
-        public IActionResult DeleteTheme([FromRoute] int idTheme)
+        [HttpDelete("delete/{idTheme}"), Authorize(Roles="ADMIN")]
+        public async Task<ActionResult> DeleteThemeAsync([FromRoute] int idTheme)
         {
-            _repository.DeleteTheme(idTheme);
+            await _repository.DeleteThemeAsync(idTheme);
             
             return NoContent();
         }
 
-        [HttpGet]
-        public IActionResult GetAllThemes()
+        [HttpGet, Authorize]
+        public async Task<ActionResult> GetAllThemesAsync()
         {
-            var list = _repository.GetAllThemes();
+            var list = await _repository.GetAllThemesAsync();
 
             if (list.Count < 1) return NoContent();
             
             return Ok(list);
         }
 
-        [HttpGet("Id/{idTheme}")]
-        public IActionResult GetThemeByID([FromRoute] int idTheme)
+        [HttpGet("Id/{idTheme}"), Authorize]
+        public async Task<ActionResult> GetThemeByIdAsync([FromRoute] int idTheme)
         {
-            var theme = _repository.GetThemeByID(idTheme);
+            var theme = await _repository.GetThemeByIdAsync(idTheme);
             
             if (theme == null) return NotFound();
             
             return Ok(theme);
         }
 
-        [HttpGet]
-        public IActionResult GetThemeByDescription([FromQuery] string themeDescription)
+        [HttpGet("search"), Authorize]
+        public async Task<ActionResult> GetThemeByDescriptionAsync([FromQuery] string themeDescription)
         {
-            var themes = _repository.GetThemeByDescription(themeDescription);
+            var themes = await _repository.GetThemeByDescriptionAsync(themeDescription);
             
             if (themes.Count < 1) return NoContent();
             
             return Ok(themes);
         }
 
-
         #endregion Methods
-
     }
 }

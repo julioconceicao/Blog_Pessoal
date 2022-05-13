@@ -16,14 +16,15 @@ namespace BlogPessoal.src.dtos
             Password = password;
         }
     }
+
     public class AuthorizationDTO
     {
         public int Id { get; set; }
         public string Email { get; set; }
         public UserType Type { get; set; }
         public string Token { get; set; }
-        public AuthorizationDTO(int id, string email, UserType type, string
-        token)
+
+        public AuthorizationDTO(int id, string email, UserType type, string token)
         {
             Id = id;
             Email = email;

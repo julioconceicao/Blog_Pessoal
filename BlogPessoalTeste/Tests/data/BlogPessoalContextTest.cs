@@ -10,7 +10,6 @@ namespace BlogPessoalTeste.Tests.data
     public class BlogPessoalContextTest
     {
         private BlogPessoalContext _context;
-
         [TestInitialize]
         public void Start()
         {
@@ -22,14 +21,13 @@ namespace BlogPessoalTeste.Tests.data
 
         }
 
-
         [TestMethod]
         public void InsertNewUserAtDatabaseReturnUser()
         {
 
             UserModel user = new UserModel();
 
-            user.Name = "Julio César";
+            user.Name = "Julio Cesar";
             user.Email = "julio@outlook.com";
             user.Password = "12345";
             user.Picture = "picturelink";

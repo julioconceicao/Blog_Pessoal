@@ -3,6 +3,7 @@ using BlogPessoal.src.services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Threading.Tasks;
 
 namespace BlogPessoal.src.controllers
 {
@@ -23,14 +24,15 @@ namespace BlogPessoal.src.controllers
         #endregion
 
         #region Methods
+        
         [HttpPost, AllowAnonymous]
-        public IActionResult Authentication([FromBody] AuthenticationDTO authentication)
+        public async Task<ActionResult> Authentication([FromBody] AuthenticationDTO authentication)
         {
             if (!ModelState.IsValid) return BadRequest();
 
             try
             {
-                var authorization = _services.GetAuthorizationAsync(authentication);
+                var authorization = await _services.GetAuthorizationAsync(authentication);
                 return Ok(authorization);
             }
             catch (Exception ex)

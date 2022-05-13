@@ -1,5 +1,7 @@
-﻿using BlogPessoal.src.dtos;
+﻿using System.Threading.Tasks;
+using BlogPessoal.src.dtos;
 using BlogPessoal.src.repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogPessoal.src.controllers
@@ -13,7 +15,7 @@ namespace BlogPessoal.src.controllers
 
         private readonly IPosting _repository;
 
-        #endregion Attributes
+        #endregion 
 
         #region Constructors
         public PostingController(IPosting repository)
@@ -21,63 +23,73 @@ namespace BlogPessoal.src.controllers
             _repository = repository;
         }
 
-        #endregion Constructors
+        #endregion
 
         #region Methods
 
-        [HttpPost]
-        public IActionResult NewPost([FromBody] NewPostDTO posting)
+        [HttpPost, Authorize]
+        public async Task<ActionResult> NewPostAsync([FromBody] NewPostDTO posting)
         {
             if (!ModelState.IsValid) return BadRequest();
-            _repository.NewPost(posting);
-            return Created($"api/Postings/id/{posting.Id}", posting);
+            
+            await _repository.NewPostAsync(posting);
+            
+            return Created($"api/Postings", posting);
         }
 
-        [HttpPut]
-        public IActionResult UpDatePost([FromBody] UpDatePostDTO posting)
+        [HttpPut, Authorize]
+        public async Task<ActionResult> UpDatePostAsync([FromBody] UpDatePostDTO posting)
         {
             if (!ModelState.IsValid) return BadRequest();
-            _repository.UpDatePost(posting);
+            
+            await _repository.UpDatePostAsync(posting);
+            
             return Ok(posting);
         }
 
-        [HttpDelete("delete/{idPosting}")]
-        public IActionResult DeletePost([FromRoute] int idPosting)
+        [HttpDelete("delete/{idPosting}"), Authorize]
+        public async Task<ActionResult> DeletePostAsync([FromRoute] int idPosting)
         {
-            _repository.DeletePost(idPosting);
+            await _repository.DeletePostAsync(idPosting);
+            
             return NoContent();
         }
 
 
-        [HttpGet("id/{idPosting}")]
-        public IActionResult GetPostByID([FromRoute] int idPost)
+        [HttpGet("id/{idPosting}"), Authorize]
+        public async Task<ActionResult> GetPostByIdAsync([FromRoute] int idPost)
         {
-            var post = _repository.GetPostByID(idPost);
+            var post = await _repository.GetPostByIdAsync(idPost);
+            
             if (post == null) return NotFound();
+            
             return Ok(post);
         }
 
-        [HttpGet]
-        public IActionResult GetAllPosts()
+        [HttpGet, Authorize]
+        public async Task<ActionResult> GetAllPostsAsync()
         {
-            var list = _repository.GetAllPosts();
+            var list = await _repository.GetAllPostsAsync();
+            
             if (list.Count < 1) return NoContent();
+            
             return Ok(list);
-
         }
 
-        [HttpGet]
-        public IActionResult GetPostBySearch(
+        [HttpGet("search"), Authorize]
+        public async Task<ActionResult> GetPostBySearchAsync(
             [FromQuery] string title,
             [FromQuery] string themeDescription,
-            [FromQuery] string emailCreator)
+            [FromQuery] string nameCreator)
         {
-            var postings = _repository.GetPostBySearch(title,
-            themeDescription, emailCreator);
+            var postings = await _repository.GetPostBySearchAsync(title,
+            themeDescription, nameCreator);
+            
             if (postings.Count < 1) return NoContent();
+            
             return Ok(postings);
         }
+        
         #endregion
-
     }
 }
