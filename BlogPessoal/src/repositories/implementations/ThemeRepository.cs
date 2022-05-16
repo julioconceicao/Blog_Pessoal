@@ -11,6 +11,12 @@ using System.Threading.Tasks;
 
 namespace BlogPessoal.src.repositories.implementations
 {
+    /// <summary>
+    /// <para>Class responsible by implementing ITheme interface.</para>
+    /// <para>By: Julio C. Goncalves Conceicao</para>
+    /// <para>V1.0</para>
+    /// <para>Data: 13/05/2022</para>
+    /// </summary>
     public class ThemeRepository : ITheme
     {
         #region Attributes
@@ -29,6 +35,10 @@ namespace BlogPessoal.src.repositories.implementations
 
 #region Methods
 
+        /// <summary>
+        /// <para>Async method to save a new THEME</para>
+        /// </summary>
+        /// <param name="theme">NewThemeDTO</param>
         public async Task NewThemeAsync(NewThemeDTO theme)
         {
             await _context.Themes.AddAsync(new ThemeModel
@@ -39,6 +49,10 @@ namespace BlogPessoal.src.repositories.implementations
            await _context.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// <para>Async method to update an existing theme</para>
+        /// </summary>
+        /// <param name="theme">UpDateThemeDTO</param>
         public async Task UpDateThemeAsync(UpDateThemeDTO theme)
         {
             var existingTheme = await GetThemeByIdAsync(theme.Id);
@@ -50,6 +64,10 @@ namespace BlogPessoal.src.repositories.implementations
             await _context.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// <para>Async method to delete an existing theme</para>
+        /// </summary>
+        /// <param name="id">Theme Id</param>
         public async Task DeleteThemeAsync(int id)
         {
             _context.Themes.Remove(await GetThemeByIdAsync(id));
@@ -57,7 +75,10 @@ namespace BlogPessoal.src.repositories.implementations
            await _context.SaveChangesAsync();
         }
 
-        //Search by themes.
+        /// <summary>
+        /// <para>Async method to GET all themes</para>
+        /// </summary>
+        /// <return>ThemeModel list</return>
         public async Task<List<ThemeModel>> GetAllThemesAsync()
         {
             return await _context.Themes.ToListAsync();
@@ -70,6 +91,11 @@ namespace BlogPessoal.src.repositories.implementations
                     .ToListAsync();
         }
 
+        /// <summary>
+        /// <para>Async method to GET a theme by Id</para>
+        /// </summary>
+        /// <param name="id">Theme Id</param>
+        /// <return>ThemeModel</return>
         public async Task<ThemeModel> GetThemeByIdAsync(int id)
         {
             return await _context.Themes.FirstOrDefaultAsync(u => u.Id == id);

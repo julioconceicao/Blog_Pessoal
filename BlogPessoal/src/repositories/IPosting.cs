@@ -14,18 +14,15 @@ namespace BlogPessoal.src.repositories
     /// </summary>
     public interface IPosting
     {
+        //Basic Operations
         Task NewPostAsync(NewPostDTO post);
-
         Task UpDatePostAsync(UpDatePostDTO post);
-
         Task DeletePostAsync(int id);
 
+        //Search Methods
         Task<PostingModel> GetPostByIdAsync(int id);
-
         Task<List<PostingModel>> GetAllPostsAsync();
-
         Task<List<PostingModel>> GetPostBySearchAsync(string title, string themeDescription, string nameCreator);
-
 
     }
 }

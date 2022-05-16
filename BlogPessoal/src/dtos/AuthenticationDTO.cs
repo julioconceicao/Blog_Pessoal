@@ -3,6 +3,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BlogPessoal.src.dtos
 {
+    
+    /// <summary>
+    /// <para>Mirror class responsible by the USER AUTHENTICATION</para>
+    /// <para>by: Julio Conceicao</para>
+    /// <para>V 1.0</para>
+    /// <para>May.12.2022</para>
+    /// </summary>
     public class AuthenticationDTO
 
     {
@@ -17,6 +24,12 @@ namespace BlogPessoal.src.dtos
         }
     }
 
+    /// <summary>
+    /// <para>Mirror class responsible by the AUTHORIZATION</para>
+    /// <para>by: Julio Conceicao</para>
+    /// <para>V 1.0</para>
+    /// <para>May.12.2022</para>
+    /// </summary>
     public class AuthorizationDTO
     {
         public int Id { get; set; }

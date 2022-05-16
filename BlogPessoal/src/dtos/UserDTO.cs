@@ -3,6 +3,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BlogPessoal.src.dtos
 {
+        /// <summary>
+    /// <para>Mirror class to CREATE a new user</para>
+    /// <para>by: Julio Conceicao</para>
+    /// <para>V 1.0</para>
+    /// <para>May.12.2022</para>
+    /// </summary>
     public class NewUserDTO
     {
         [Required, StringLength(50)]
@@ -29,6 +35,12 @@ namespace BlogPessoal.src.dtos
         }
     }
 
+    /// <summary>
+    /// <para>Mirror class to UPDATE an existing user.</para>
+    /// <para>by: Julio Conceicao</para>
+    /// <para>V 1.0</para>
+    /// <para>May.12.2022</para>
+    /// </summary>
     public class UpDateUserDTO
     {
 

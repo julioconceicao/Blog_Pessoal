@@ -6,7 +6,13 @@ using System.Text.Json.Serialization;
 
 namespace BlogPessoal.src.models
 {
-    //name DE CLASSE COMEÇA SEMPRE EM MAIÚSCULO!!!!!
+    /// <summary>
+    /// <para>This class represent tb_user at database.</para>
+    /// <para>By: Julio Conceicao</para>
+    /// <para>v 1.0</para>
+    /// <para>May.12.2022</para>
+    /// </summary>    
+    
     [Table("tb_user")]
     public class UserModel
     {

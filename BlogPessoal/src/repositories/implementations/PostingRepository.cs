@@ -8,10 +8,27 @@ using System.Threading.Tasks;
 
 namespace BlogPessoal.src.repositories.implementations
 {
+    /// <summary>
+    /// <para>Class responsible by implementing IPosting interface.</para>
+    /// <para>By: Julio C. Goncalves Conceicao</para>
+    /// <para>V1.0</para>
+    /// <para>Data: 13/05/2022</para>
+    /// </summary>
+
     public class PostingRepository : IPosting
     {
         private readonly BlogPessoalContext _context;
 
+         public PostingRepository(BlogPessoalContext context)
+        {
+            _context = context;
+        }
+        /// <summary>
+        /// <para>Async method to CREATE a new post.</para>
+        /// <para>By: Julio Conceicao</para>
+        /// <para>v 1.0</para>
+        /// <para>May.12.2022</para>
+        /// </summary>
         public async Task NewPostAsync(NewPostDTO post)
         {
            await _context.Posts.AddAsync(new PostingModel
@@ -26,6 +43,12 @@ namespace BlogPessoal.src.repositories.implementations
             await _context.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// <para>Async method to UPDATE an existing posts.</para>
+        /// <para>By: Julio Conceicao</para>
+        /// <para>v 1.0</para>
+        /// <para>May.12.2022</para>
+        /// </summary>
         public async Task UpDatePostAsync(UpDatePostDTO post)
         {
             var existingPost = await GetPostByIdAsync(post.Id);
@@ -38,6 +61,12 @@ namespace BlogPessoal.src.repositories.implementations
             await _context.SaveChangesAsync();
         }
         
+        /// <summary>
+        /// <para>Async method to DELETE an existing post.</para>
+        /// <para>By: Julio Conceicao</para>
+        /// <para>v 1.0</para>
+        /// <para>May.12.2022</para>
+        /// </summary>
         public async Task DeletePostAsync(int id)
         {
             _context.Posts.Remove(await GetPostByIdAsync(id));
@@ -45,6 +74,12 @@ namespace BlogPessoal.src.repositories.implementations
             await _context.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// <para>Async method to GET ALL POSTS.</para>
+        /// <para>By: Julio Conceicao</para>
+        /// <para>v 1.0</para>
+        /// <para>May.12.2022</para>
+        /// </summary>
         public async Task<List<PostingModel>> GetAllPostsAsync()
         {
             return await _context.Posts
@@ -53,6 +88,11 @@ namespace BlogPessoal.src.repositories.implementations
                 .ToListAsync();
         }
 
+        /// <summary>
+        /// <para>Async method to GET a post by ID</para>
+        /// </summary>
+        /// <param name="id">Post Id</param>
+        /// <return>PostingModel</return>
         public async Task<PostingModel> GetPostByIdAsync(int id)
         {
             return await _context.Posts
@@ -61,6 +101,13 @@ namespace BlogPessoal.src.repositories.implementations
             .FirstOrDefaultAsync(p => p.Id == id);
         }
 
+        /// <summary>
+        /// <para>Async method to GET post by SEARCH</para>
+        /// </summary>
+        /// <param name="title">Post title</param>
+        /// <param name="themeDescription">Theme description</param>
+        /// <param name="nameCreator">Creator name</param>
+        /// <return>List PostingModel</return>
         public async Task<List<PostingModel>> GetPostBySearchAsync(
             string title,
             string themeDescription,

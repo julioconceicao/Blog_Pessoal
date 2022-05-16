@@ -2,6 +2,12 @@
 
 namespace BlogPessoal.src.dtos
 {
+    /// <summary>
+    /// <para>Mirror class to CREATE  new theme.</para>
+    /// <para>by: Julio Conceicao</para>
+    /// <para>V 1.0</para>
+    /// <para>May.12.2022</para>
+    /// </summary>
     public class NewThemeDTO
     {
         [Required, StringLength(20)]
@@ -13,6 +19,12 @@ namespace BlogPessoal.src.dtos
         }
     }
 
+    /// <summary>
+    /// <para>Mirror class to UPDATE an existing theme.</para>
+    /// <para>by: Julio Conceicao</para>
+    /// <para>V 1.0</para>
+    /// <para>May.12.2022</para>
+    /// </summary>
     public class UpDateThemeDTO
     {
         [Required]
@@ -21,9 +33,9 @@ namespace BlogPessoal.src.dtos
         [Required, StringLength(20)]
         public string Description { get; set; }
 
-        public UpDateThemeDTO(string description, int id)
+        public UpDateThemeDTO(int id, string description)
         {
-            Id = Id;
+            Id = id;
             Description = description;
         }
     }

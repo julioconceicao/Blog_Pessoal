@@ -5,7 +5,12 @@ using System.Text.Json.Serialization;
 
 namespace BlogPessoal.src.models
 {
-
+    /// <summary>
+    /// <para>This class represent tb_themes at database.</para>
+    /// <para>By: Julio Conceicao</para>
+    /// <para>v 1.0</para>
+    /// <para>May.12.2022</para>
+    /// </summary>
     [Table("tb_theme")]
     public class ThemeModel
     {

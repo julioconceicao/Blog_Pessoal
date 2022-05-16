@@ -2,7 +2,11 @@
 
 namespace BlogPessoal.src.utilities
 {
-   [JsonConverter(typeof(JsonStringEnumConverter))]
+    /// <summary>
+    /// <para>Enum responsible for setting user types.</para>
+    /// </summary>
+    
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum UserType
     {
         USER,

@@ -2,6 +2,12 @@
 
 namespace BlogPessoal.src.dtos
 {
+    /// <summary>
+    /// <para>Mirror class responsible by CREATING A NEW POST</para>
+    /// <para>by: Julio Conceicao</para>
+    /// <para>V 1.0</para>
+    /// <para>May.12.2022</para>
+    /// </summary>
     public class NewPostDTO
     {
         [Required, StringLength(30)]
@@ -27,6 +33,13 @@ namespace BlogPessoal.src.dtos
             ThemeDescription = themedescription;
         }
     }
+
+    /// <summary>
+    /// <para>Mirror class responsible by UPDATE an existing post</para>
+    /// <para>by: Julio Conceicao</para>
+    /// <para>V 1.0</para>
+    /// <para>May.12.2022</para>
+    /// </summary>
 
     public class UpDatePostDTO
     {
