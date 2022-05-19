@@ -34,9 +34,21 @@ namespace BlogPessoal
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            // Database settings
-            //services.AddDbContext<BlogPessoalContext>(opt => opt.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
-            
+            if (Configuration["Enviroment:Start"] == "PROD")
+            {
+                services.AddEntityFrameworkNpgsql()
+                .AddDbContext<BlogPessoalContext>(
+                opt =>
+                opt.UseNpgsql(Configuration["ConnectionStringsProd:DefaultConnection"]));
+            }
+            else
+            {
+                services.AddDbContext<BlogPessoalContext>(
+                opt =>
+                opt.UseSqlServer(Configuration["ConnectionStringsDev:DefaultConnection"]));
+            }
+
+            //TO USE AS IN MEMORY DB
             //var opt = new DbContextOptionsBuilder<BlogPessoalContext>().UseInMemoryDatabase(databaseName: "db_blogpessoal").Options;
             //services.AddDbContext<BlogPessoalContext>(opt => opt.UseInMemoryDatabase(databaseName: "db_blogpessoal"));
 
@@ -71,7 +83,8 @@ namespace BlogPessoal
                         ValidateAudience = false
                     };
                 });
-                // Swagger Settings
+
+            // Swagger Settings
             services.AddSwaggerGen(s =>
             {
                 s.SwaggerDoc("v1", new OpenApiInfo { Title = "Blog Pessoal", Version = "v1" });
@@ -87,9 +100,9 @@ namespace BlogPessoal
                     Description = "JWT authorization header use: Bearer + JWT Token",
                 });
 
-                s.AddSecurityRequirement( new OpenApiSecurityRequirement
+                s.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
-                    { 
+                    {
                         new OpenApiSecurityScheme
                         {
                             Reference = new OpenApiReference
@@ -116,10 +129,22 @@ namespace BlogPessoal
                 context.Database.EnsureCreated();
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BlogPessoal v1"));
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "BlogPessoal v1");
+                    c.RoutePrefix = string.Empty;
+                });
             }
 
             // Production Environment
+            context.Database.EnsureCreated();
+            app.UseDeveloperExceptionPage();
+            app.UseSwagger();
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "BlogPessoal v1");
+                c.RoutePrefix = string.Empty;
+            });
+
             // Routes
             app.UseRouting();
 
@@ -139,4 +164,5 @@ namespace BlogPessoal
         }
     }
 }
+
 

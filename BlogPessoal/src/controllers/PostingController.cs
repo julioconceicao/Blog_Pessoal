@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BlogPessoal.src.controllers
 {
     [ApiController]
-    [Route("api/Postings")]
+    [Route("api/Posts")]
     [Produces("application/json")]
     public class PostingController : ControllerBase
     {
@@ -37,7 +37,7 @@ namespace BlogPessoal.src.controllers
         /// <remarks>
         /// Example:
         ///
-        ///     POST /api/Postings
+        ///     POST /api/Posts
         ///     {  
         ///        "title": "Dotnet Core mudando o mundo", 
         ///        "description": "Uma ferramenta muito boa para desenvolver aplicações web",
@@ -69,7 +69,7 @@ namespace BlogPessoal.src.controllers
         /// <remarks>
         /// Example:
         ///
-        ///     PUT /api/Postagens
+        ///     PUT /api/Posts
         ///     {
         ///        "id": 1,   
         ///        "title": "Dotnet Core mudando o mundo", 
@@ -79,8 +79,8 @@ namespace BlogPessoal.src.controllers
         ///     }
         ///
         /// </remarks>
-        /// <response code="200">Retorna postagem atualizada</response>
-        /// <response code="400">Erro na requisição</response>
+        /// <response code="200">Returns updated posts</response>
+        /// <response code="400">Requisition error</response>
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PostingModel))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpPut, Authorize]
